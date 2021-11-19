@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify02e9cf870ac44-staging-111902-authRole",
+      "UnauthRoleArn": "arn:aws:iam::283014178655:role/amplify-amplify02e9cf870ac44-staging-111902-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::283014178655:role/amplify-amplify02e9cf870ac44-staging-111902-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-amplify02e9cf870ac44-staging-111902-deployment",
+      "UnauthRoleName": "amplify-amplify02e9cf870ac44-staging-111902-unauthRole",
+      "StackName": "amplify-amplify02e9cf870ac44-staging-111902",
+      "StackId": "arn:aws:cloudformation:us-west-2:283014178655:stack/amplify-amplify02e9cf870ac44-staging-111902/7fe23cf0-492a-11ec-a5ac-068c163a19e3",
+      "AmplifyAppId": "d322in89zvnoet"
+    },
+    "categories": {
+      "auth": {
+        "smartclosete56dec17": {}
+      }
+    }
+  }
+}
