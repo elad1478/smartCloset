@@ -16,7 +16,7 @@ function App() {
     }, []);
 
     async function fetchItems() {
-        const apiData = await API.graphql({ query: listItems });
+        const apiData = await API.graphql({ query: listItems, authMode: "AMAZON_COGNITO_USER_POOLS" });
         const itemsFromAPI = apiData.data.listItems.items;
         await Promise.all(itemsFromAPI.map(async item => {
             if (item.image) {
@@ -30,7 +30,7 @@ function App() {
 
     async function createItem() {
         if (!formData.name) return;
-        await API.graphql({ query: createItemMutation, variables: { input: formData } });
+        await API.graphql({ query: createItemMutation, variables: { input: formData }, authMode: "AMAZON_COGNITO_USER_POOLS" });
         if (formData.image) {
             const image = await Storage.get(formData.image);
             formData.image = image;
@@ -42,7 +42,7 @@ function App() {
     async function deleteItem({ id }) {
         const newItemsArray = items.filter(note => note.id !== id);
         setItems(newItemsArray);
-        await API.graphql({ query: deleteItemMutation, variables: { input: { id } }});
+        await API.graphql({ query: deleteItemMutation, variables: { input: { id }, authMode: "AMAZON_COGNITO_USER_POOLS" }});
     }
 
     async function onChange(e) {
