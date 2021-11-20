@@ -1,17 +1,17 @@
-type Item @model @auth(rules: [{ allow: owner }]){
+type Item @model{
   id: ID!
   name: String!
   image: String
   outfits: [Outfit!] @connection
 }
 
-type Outfit @model @auth(rules: [{ allow: owner }]){
+type Outfit @model{
   id: ID!
   items: [Item!] @connection
   rating: Int
 }
 
-type History @model @auth(rules: [{ allow: owner }]){
+type History @model{
   id: ID!
   outfit: Outfit! @connection
   eventName: String

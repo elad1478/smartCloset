@@ -7,19 +7,17 @@ export const getItem = /* GraphQL */ `
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -34,12 +32,11 @@ export const listItems = /* GraphQL */ `
         id
         name
         image
-        createdAt
-        updatedAt
-        owner
         outfits {
           nextToken
         }
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -49,9 +46,6 @@ export const getOutfit = /* GraphQL */ `
   query GetOutfit($id: ID!) {
     getOutfit(id: $id) {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -59,11 +53,12 @@ export const getOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -76,13 +71,12 @@ export const listOutfits = /* GraphQL */ `
     listOutfits(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        rating
-        createdAt
-        updatedAt
         items {
           nextToken
         }
-        owner
+        rating
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -92,21 +86,19 @@ export const getHistory = /* GraphQL */ `
   query GetHistory($id: ID!) {
     getHistory(id: $id) {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
@@ -119,18 +111,16 @@ export const listHistorys = /* GraphQL */ `
     listHistorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        eventName
-        date
-        createdAt
-        updatedAt
         outfit {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
-        owner
+        eventName
+        date
+        createdAt
+        updatedAt
       }
       nextToken
     }

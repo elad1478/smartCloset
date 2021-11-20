@@ -2,78 +2,69 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateItem = /* GraphQL */ `
-  subscription OnCreateItem($owner: String!) {
-    onCreateItem(owner: $owner) {
+  subscription OnCreateItem {
+    onCreateItem {
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onUpdateItem = /* GraphQL */ `
-  subscription OnUpdateItem($owner: String!) {
-    onUpdateItem(owner: $owner) {
+  subscription OnUpdateItem {
+    onUpdateItem {
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onDeleteItem = /* GraphQL */ `
-  subscription OnDeleteItem($owner: String!) {
-    onDeleteItem(owner: $owner) {
+  subscription OnDeleteItem {
+    onDeleteItem {
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onCreateOutfit = /* GraphQL */ `
-  subscription OnCreateOutfit($owner: String!) {
-    onCreateOutfit(owner: $owner) {
+  subscription OnCreateOutfit {
+    onCreateOutfit {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -81,21 +72,19 @@ export const onCreateOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onUpdateOutfit = /* GraphQL */ `
-  subscription OnUpdateOutfit($owner: String!) {
-    onUpdateOutfit(owner: $owner) {
+  subscription OnUpdateOutfit {
+    onUpdateOutfit {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -103,21 +92,19 @@ export const onUpdateOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onDeleteOutfit = /* GraphQL */ `
-  subscription OnDeleteOutfit($owner: String!) {
-    onDeleteOutfit(owner: $owner) {
+  subscription OnDeleteOutfit {
+    onDeleteOutfit {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -125,77 +112,72 @@ export const onDeleteOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onCreateHistory = /* GraphQL */ `
-  subscription OnCreateHistory($owner: String!) {
-    onCreateHistory(owner: $owner) {
+  subscription OnCreateHistory {
+    onCreateHistory {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
 export const onUpdateHistory = /* GraphQL */ `
-  subscription OnUpdateHistory($owner: String!) {
-    onUpdateHistory(owner: $owner) {
+  subscription OnUpdateHistory {
+    onUpdateHistory {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
 export const onDeleteHistory = /* GraphQL */ `
-  subscription OnDeleteHistory($owner: String!) {
-    onDeleteHistory(owner: $owner) {
+  subscription OnDeleteHistory {
+    onDeleteHistory {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;

@@ -10,19 +10,17 @@ export const createItem = /* GraphQL */ `
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -35,19 +33,17 @@ export const updateItem = /* GraphQL */ `
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -60,19 +56,17 @@ export const deleteItem = /* GraphQL */ `
       id
       name
       image
-      createdAt
-      updatedAt
-      owner
       outfits {
         items {
           id
           rating
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -83,9 +77,6 @@ export const createOutfit = /* GraphQL */ `
   ) {
     createOutfit(input: $input, condition: $condition) {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -93,11 +84,12 @@ export const createOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -108,9 +100,6 @@ export const updateOutfit = /* GraphQL */ `
   ) {
     updateOutfit(input: $input, condition: $condition) {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -118,11 +107,12 @@ export const updateOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -133,9 +123,6 @@ export const deleteOutfit = /* GraphQL */ `
   ) {
     deleteOutfit(input: $input, condition: $condition) {
       id
-      rating
-      createdAt
-      updatedAt
       items {
         items {
           id
@@ -143,11 +130,12 @@ export const deleteOutfit = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          owner
         }
         nextToken
       }
-      owner
+      rating
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -158,21 +146,19 @@ export const createHistory = /* GraphQL */ `
   ) {
     createHistory(input: $input, condition: $condition) {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
@@ -183,21 +169,19 @@ export const updateHistory = /* GraphQL */ `
   ) {
     updateHistory(input: $input, condition: $condition) {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
@@ -208,21 +192,19 @@ export const deleteHistory = /* GraphQL */ `
   ) {
     deleteHistory(input: $input, condition: $condition) {
       id
+      outfit {
+        id
+        items {
+          nextToken
+        }
+        rating
+        createdAt
+        updatedAt
+      }
       eventName
       date
       createdAt
       updatedAt
-      outfit {
-        id
-        rating
-        createdAt
-        updatedAt
-        items {
-          nextToken
-        }
-        owner
-      }
-      owner
     }
   }
 `;
