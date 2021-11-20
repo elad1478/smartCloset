@@ -1,6 +1,39 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const syncItems = /* GraphQL */ `
+  query SyncItems(
+    $filter: ModelItemFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncItems(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        image
+        outfits {
+          nextToken
+          startedAt
+        }
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getItem = /* GraphQL */ `
   query GetItem($id: ID!) {
     getItem(id: $id) {
@@ -11,13 +44,22 @@ export const getItem = /* GraphQL */ `
         items {
           id
           rating
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -34,11 +76,49 @@ export const listItems = /* GraphQL */ `
         image
         outfits {
           nextToken
+          startedAt
         }
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncOutfits = /* GraphQL */ `
+  query SyncOutfits(
+    $filter: ModelOutfitFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncOutfits(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        items {
+          nextToken
+          startedAt
+        }
+        rating
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -51,14 +131,23 @@ export const getOutfit = /* GraphQL */ `
           id
           name
           image
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
       rating
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -73,12 +162,57 @@ export const listOutfits = /* GraphQL */ `
         id
         items {
           nextToken
+          startedAt
         }
         rating
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncHistories = /* GraphQL */ `
+  query SyncHistories(
+    $filter: ModelHistoryFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncHistories(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        outfit {
+          id
+          rating
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          owner
+        }
+        eventName
+        date
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -90,15 +224,24 @@ export const getHistory = /* GraphQL */ `
         id
         items {
           nextToken
+          startedAt
         }
         rating
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       eventName
       date
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -114,15 +257,24 @@ export const listHistorys = /* GraphQL */ `
         outfit {
           id
           rating
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         eventName
         date
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       nextToken
+      startedAt
     }
   }
 `;

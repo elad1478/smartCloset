@@ -14,13 +14,22 @@ export const createItem = /* GraphQL */ `
         items {
           id
           rating
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -37,13 +46,22 @@ export const updateItem = /* GraphQL */ `
         items {
           id
           rating
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -60,13 +78,22 @@ export const deleteItem = /* GraphQL */ `
         items {
           id
           rating
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -82,14 +109,23 @@ export const createOutfit = /* GraphQL */ `
           id
           name
           image
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
       rating
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -105,14 +141,23 @@ export const updateOutfit = /* GraphQL */ `
           id
           name
           image
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
       rating
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -128,14 +173,23 @@ export const deleteOutfit = /* GraphQL */ `
           id
           name
           image
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          owner
         }
         nextToken
+        startedAt
       }
       rating
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -150,15 +204,24 @@ export const createHistory = /* GraphQL */ `
         id
         items {
           nextToken
+          startedAt
         }
         rating
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       eventName
       date
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -173,15 +236,24 @@ export const updateHistory = /* GraphQL */ `
         id
         items {
           nextToken
+          startedAt
         }
         rating
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       eventName
       date
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -196,15 +268,24 @@ export const deleteHistory = /* GraphQL */ `
         id
         items {
           nextToken
+          startedAt
         }
         rating
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       eventName
       date
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      owner
     }
   }
 `;

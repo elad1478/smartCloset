@@ -5,7 +5,7 @@ import { listItems } from './graphql/queries';
 import { createItem as createItemMutation, deleteItem as deleteItemMutation } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
-const initialFormState = { name: ''}
+const initialFormState = { name: '', outfits: []}
 
 function App() {
     const [items, setItems] = useState([]);
