@@ -1,0 +1,20 @@
+type Item @model @auth(rules: [{ allow: owner }]){
+  id: ID!
+  name: String!
+  image: String
+  outfits: [Outfit!] @connection
+}
+
+type Outfit @model @auth(rules: [{ allow: owner }]){
+  id: ID!
+  items: [Item!] @connection
+  rating: Int
+}
+
+type History @model @auth(rules: [{ allow: owner }]){
+  id: ID!
+  outfit: Outfit! @connection
+  eventName: String
+  date: String!
+}
+

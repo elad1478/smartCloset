@@ -1,0 +1,14 @@
+{
+  "resourceName": "images",
+  "policyUUID": "4a17cfbd",
+  "bucketName": "smartcloset38a6e73ea5e14de9b0c1da573c44b97a",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

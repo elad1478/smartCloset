@@ -1,48 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import { listNotes } from './graphql/queries';
-import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+import { listItems } from './graphql/queries';
+import { createItem as createItemMutation, deleteItem as deleteItemMutation } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
-const initialFormState = { name: '', description: '' }
+const initialFormState = { name: ''}
 
 function App() {
-    const [notes, setNotes] = useState([]);
+    const [items, setItems] = useState([]);
     const [formData, setFormData] = useState(initialFormState);
 
     useEffect(() => {
-        fetchNotes();
+        fetchItems();
     }, []);
 
-    async function fetchNotes() {
-        const apiData = await API.graphql({ query: listNotes });
-        const notesFromAPI = apiData.data.listNotes.items;
-        await Promise.all(notesFromAPI.map(async note => {
-            if (note.image) {
-                const image = await Storage.get(note.image);
-                note.image = image;
+    async function fetchItems() {
+        const apiData = await API.graphql({ query: listItems });
+        const itemsFromAPI = apiData.data.listItems.items;
+        await Promise.all(itemsFromAPI.map(async item => {
+            if (item.image) {
+                const image = await Storage.get(item.image);
+                item.image = image;
             }
-            return note;
+            return item;
         }))
-        setNotes(apiData.data.listNotes.items);
+        setItems(apiData.data.listItems.items);
     }
 
-    async function createNote() {
-        if (!formData.name || !formData.description) return;
-        await API.graphql({ query: createNoteMutation, variables: { input: formData } });
+    async function createItem() {
+        if (!formData.name) return;
+        await API.graphql({ query: createItemMutation, variables: { input: formData } });
         if (formData.image) {
             const image = await Storage.get(formData.image);
             formData.image = image;
         }
-        setNotes([ ...notes, formData ]);
+        setItems([ ...items, formData ]);
         setFormData(initialFormState);
     }
 
-    async function deleteNote({ id }) {
-        const newNotesArray = notes.filter(note => note.id !== id);
-        setNotes(newNotesArray);
-        await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
+    async function deleteItem({ id }) {
+        const newItemsArray = items.filter(note => note.id !== id);
+        setItems(newItemsArray);
+        await API.graphql({ query: deleteItemMutation, variables: { input: { id } }});
     }
 
     async function onChange(e) {
@@ -50,35 +50,29 @@ function App() {
         const file = e.target.files[0];
         setFormData({ ...formData, image: file.name });
         await Storage.put(file.name, file);
-        fetchNotes();
+        fetchItems();
     }
 
     return (
         <div className="App">
-            <h1>My Notes App</h1>
+            <h1>My Items App</h1>
             <input
                 onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-                placeholder="Note name"
+                placeholder="Item name"
                 value={formData.name}
-            />
-            <input
-                onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-                placeholder="Note description"
-                value={formData.description}
             />
             <input
                 type="file"
                 onChange={onChange}
             />
-            <button onClick={createNote}>Create Note</button>
+            <button onClick={createItem}>Create Item</button>
             <div style={{marginBottom: 30}}>{
-                notes.map(note => (
-                    <div key={note.id || note.name}>
-                        <h2>{note.name}</h2>
-                        <p>{note.description}</p>
-                        <button onClick={() => deleteNote(note)}>Delete note</button>
+                items.map(item => (
+                    <div key={item.id || item.name}>
+                        <h2>{item.name}</h2>
+                        <button onClick={() => deleteItem(item)}>Delete Item</button>
                         {
-                            note.image && <img src={note.image} style={{width: 400}} />
+                            item.image && <img src={item.image} style={{width: 400}} />
                         }
                     </div>
                 ))
