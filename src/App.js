@@ -5,7 +5,7 @@ import { listItems } from './graphql/queries';
 import { createItem as createItemMutation, deleteItem as deleteItemMutation } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
-const initialFormState = { name: '', outfits: []}
+const initialFormState = { name: ''}
 
 function App() {
     const [items, setItems] = useState([]);
@@ -55,7 +55,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>My Items App</h1>
+            <h1>My Items</h1>
             <input
                 onChange={e => setFormData({ ...formData, 'name': e.target.value})}
                 placeholder="Item name"
