@@ -41,9 +41,9 @@ function App() {
 
     async function deleteItem({ id }) {
         const newItemsArray = items.filter(item => item.id !== id);
-        const deletedItemVersion = items.find(item => item.id == id)._version;
+        const _version = items.find(item => item.id == id)._version;
         setItems(newItemsArray);
-        await API.graphql({ query: deleteItemMutation, variables: { input: { id , deletedItemVersion }, authMode: "AMAZON_COGNITO_USER_POOLS" }});
+        await API.graphql({ query: deleteItemMutation, variables: { input: { id , _version }, authMode: "AMAZON_COGNITO_USER_POOLS" }});
     }
 
     async function onChange(e) {
